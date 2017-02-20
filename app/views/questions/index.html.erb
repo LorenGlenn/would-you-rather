@@ -5,7 +5,7 @@
       <li> <%= q.option_1 %> </li> or
       <li> <%= q.option_2 %> </li>
       <% if current_user.id == q.user_id %>
-        <%= link_to "Edit", edit_user_question_path(current_user, q.id) %>
+        <%= link_to "Edit", edit_user_question_path(current_user, q) %> <%= link_to "Delete", user_question_path(current_user, q), method: :delete %>
         <% else %>
         booo
       <% end %>
