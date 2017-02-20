@@ -1,0 +1,18 @@
+<% if @questions.any? %>
+<h3>Would you rather:</h3>
+  <% @questions.each do |q| %>
+    <ul>
+      <li> <%= q.option_1 %> </li> or
+      <li> <%= q.option_2 %> </li>
+      <% if current_user.id == q.user_id %>
+        <%= link_to "Edit", edit_user_question_path(current_user, q.id) %>
+        <% else %>
+        booo
+      <% end %>
+    </ul>
+  <% end %>
+  <% else %>
+    <p>
+      There are no questions yet! Click <%= link_to "here", new_user_question_path(current_user) %> to add a question.
+    </p>
+<% end %>

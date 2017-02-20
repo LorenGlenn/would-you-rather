@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170220163439) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string   "user_id"
+    t.integer  "user_id"
     t.string   "option_1"
     t.string   "option_2"
     t.datetime "created_at", null: false

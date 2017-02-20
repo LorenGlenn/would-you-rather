@@ -1,0 +1,21 @@
+<nav>
+  <div class="nav-wrapper grey">
+    <a href="/" class="brand-logo">Would you rather?</a>
+    <% if user_signed_in? %>
+
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <div class="chip">
+          <%= current_user.email %>
+        </div>
+          <li> <%= link_to "New Question", new_user_question_path(current_user) %></li>
+        <li><%= link_to "Questions", root_path %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+      </ul>
+        <% else  %>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+          <li><%= link_to "Login", user_session_path %></li>
+        </ul>
+    <% end %>
+  </div>
+</nav>
