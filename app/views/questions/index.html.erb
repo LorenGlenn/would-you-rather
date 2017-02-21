@@ -2,22 +2,41 @@
 <h3>Would you rather:</h3>
   <% @questions.each do |q| %>
   <%= content_tag :div, class: "question_" + q.id.to_s do %>
-    <ul>
-      <li> <%= link_to q.option_1, question_answers_path(q, :option_1 => q), method: :post %></li>  or
-      <li> <%= link_to q.option_2, question_answers_path(q, :option_2 => q), method: :post %></li>
-      <%= link_to "See Results", user_question_path(current_user, q), remote: true %>
-      <% if current_user.id == q.user_id %>
-        <%= link_to "Edit", edit_user_question_path(current_user, q) %> <%= link_to "Delete", user_question_path(current_user, q), method: :delete %>
-        <% else %>
-        booo
-      <% end %>
-    </ul>
+  <div class="row">
+        <div class="col m3">
+          <div class="card">
+            <div class="card-image">
+              <%= image_tag q.avatar2.url(:medium) %>
+              <span class="card-title">Would you rather...</span>
+            </div>
+            <div class="card-action">
+              <%= link_to q.option_2, question_answers_path(q, :option_2 => q), method: :post %>
+            </div>
+          </div>
+        </div>
+        <div class="col m2">
+          <% if current_user.id == q.user_id %>
+          <%= link_to "Edit", edit_user_question_path(current_user, q) %> <%= link_to "Delete", user_question_path(current_user, q), method: :delete %>
+          <% end %>
+          <h2>Or</h2>
+          <%= link_to "See Results", user_question_path(current_user, q), remote: true %>
+        </div>
+        <div class="col m3">
+          <div class="card">
+            <div class="card-image">
+              <%= image_tag q.avatar.url(:thumb) %>
+              <span class="card-title">Would you rather...</span>
+            </div>
+            <div class="card-action">
+              <%= link_to q.option_1, question_answers_path(q, :option_1 => q), method: :post %>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
   <% end %>
   <ul class="questions_list">
-
   </ul>
-
 </div>
 
   <%= link_to "New Question", new_user_question_path(current_user), id: "newQuestionLink", remote: true %>

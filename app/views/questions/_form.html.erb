@@ -1,9 +1,13 @@
 <%= render('layouts/errors', :object => @question) %>
 
-<%= form_for [@user, @question], remote: true do |f| %>
+<%= form_for [@user, @question], remote: true, multipart: true, authenticity_token: true do |f| %>
   <%= f.label :option_1 %>
   <%= f.text_field :option_1 %>
   <%= f.label :option_2 %>
   <%= f.text_field :option_2 %>
+  <%= f.label :avatar %>
+  <%= f.file_field :avatar %>
+  <%= f.label :avatar2 %>
+  <%= f.file_field :avatar2 %>
   <%= f.submit %>
 <% end %>
