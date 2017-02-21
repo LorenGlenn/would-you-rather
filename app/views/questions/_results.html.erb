@@ -1,6 +1,12 @@
 <h3>Results</h3>
 
 <p>
-<%= @question.option_1 %> = <%= (100 * @question.get_likes.size / (@question.get_likes.size + @question.get_dislikes.size))%>% <br>
-<%= @question.option_2 %> = <%= (100 * @question.get_dislikes.size / (@question.get_likes.size + @question.get_dislikes.size))%>%
+<%= @question.option_1 %> = <%= (100 * @question.get_likes.size / (@question.get_likes.size + @question.get_dislikes.size))%>%<br>
+<div class="progress">
+    <div class="determinate" style="width: 70%"></div>
+</div><br>
+<%= @question.option_2 %> = <%= (100 * @question.get_dislikes.size / (@question.get_likes.size + @question.get_dislikes.size))%>%<br>
+<div class="progress">
+    <div class="determinate" style="width: 70%"></div>
+</div><br>
 </p>

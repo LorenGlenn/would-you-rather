@@ -1,3 +1,23 @@
 // Place all the styles related to the questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.center-text {
+  text-align: center;
+}
+
+.center-col {
+  margin-left: 20% !important;
+}
+
+.m2  {
+    margin-top: 6%;
+  padding-right:  12% !important;
+  margin: 0% 12% !important;
+}
+
+.progress {
+  height: 30px !important;
+  color: red !important;
+}
