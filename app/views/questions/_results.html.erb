@@ -1,6 +1,6 @@
 <h3>Results</h3>
 
 <p>
-<%= @question.option_1 %> = <%= @question.get_likes.size %> votes <br>
-<%= @question.option_2 %> = <%= @question.get_dislikes.size %> votes
+<%= @question.option_1 %> = <%= (100 * @question.get_likes.size / (@question.get_likes.size + @question.get_dislikes.size))%>% <br>
+<%= @question.option_2 %> = <%= (100 * @question.get_dislikes.size / (@question.get_likes.size + @question.get_dislikes.size))%>%
 </p>
