@@ -1,6 +1,6 @@
 <%= render('layouts/errors', :object => @question) %>
 
-<%= form_for [@user, @question] do |f| %>
+<%= form_for [@user, @question], remote: true do |f| %>
   <%= f.label :option_1 %>
   <%= f.text_field :option_1 %>
   <%= f.label :option_2 %>

@@ -11,14 +11,11 @@ class QuestionsController < ApplicationController
 
   def create
     @user = current_user
-    @question = @user.questions.new(question_params)
-    if @question.save
-      flash[:notice] = "Question saved!"
-      redirect_to root_path
-    else
-      flash[:alert] = "Question not saved!"
-      render :new
-    end
+    @question = @user.questions.create!(question_params)
+      respond_to  do |format|
+        format.html { redirect_to root_path }
+        format.js
+      end
   end
 
   def edit
@@ -35,6 +32,14 @@ class QuestionsController < ApplicationController
     else
       flash[:notice] = "Question not updated!"
       render :edit
+    end
+  end
+
+  def show
+    @question = Question.find(params[:id])
+    respond_to  do |format|
+      format.html { redirect_to root_path }
+      format.js
     end
   end
 

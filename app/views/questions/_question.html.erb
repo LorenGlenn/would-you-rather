@@ -1,0 +1,3 @@
+<li> <%= link_to @question.option_1, question_answers_path(@question, :option_1 => @question), method: :create %> </li> or
+<li> <%= link_to @question.option_2, question_answers_path(@question, :option_2 => @question), method: :create %> </li>
+<%= link_to "Edit", edit_user_question_path(current_user, @question) %> <%= link_to "Delete", user_question_path(current_user, @question), method: :delete %>
